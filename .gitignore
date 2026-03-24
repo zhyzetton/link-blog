@@ -9,8 +9,8 @@ dist/
 
 # 本地开发缓存
 
-.vitepress/cache/
-.vitepress/temp/
+docs/.vitepress/cache/
+docs/.vitepress/temp/
 
 # 日志文件
 
