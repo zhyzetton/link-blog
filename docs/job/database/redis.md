@@ -126,7 +126,7 @@
 
 ### Redis 为什么这么快
 
-![image](assets/image-20251208110957-2yz3meb.png)
+![image](../assets/image-20251208110957-2yz3meb.png)
 
 1. 纯内存操作
 2. 高效的IO模型
@@ -176,7 +176,7 @@ SETNX lockKey uniqueValue
 
 Redisson 中的分布式锁自带自动续期机制，使用起来非常简单，原理也比较简单，其提供了一个专门用来监控和续期锁的 ==Watch Dog（ 看门狗）==，如果操作共享资源的线程还未执行完成的话，Watch Dog 会不断地延长锁的过期时间，进而保证锁不会因为超时而被释放。
 
-![image](assets/image-20251210095947-dpeihfn.png)
+![image](../assets/image-20251210095947-dpeihfn.png)
 
 **实现可重入锁**
 
@@ -192,7 +192,7 @@ Redisson 中的分布式锁自带自动续期机制，使用起来非常简单�
 
 由于 Redis 集群数据同步到各个节点时是异步的，如果在 Redis 主节点获取到锁后，在没有同步到其他节点时，Redis 主节点宕机了，此时新的 Redis 主节点依然可以获取锁，所以多个应用服务就可以同时获取到锁。
 
-![image](assets/image-20251210104401-adqzcm1.png)
+![image](../assets/image-20251210104401-adqzcm1.png)
 
 使用 RedLock 来解决
 
@@ -209,7 +209,7 @@ Redlock 算法的思想是让客户端向 Redis 集群中的多个独立的 Redi
 List 实现消息队列功能太简单，像消息确认机制等功能还需要我们自己实现，最要命的是没有广播机制，消息也只能被消费一次。  
 Redis 2.0 引入了发布订阅 (pub/sub) 功能，解决了 List 实现消息队列没有广播机制的问题。
 
-![image](assets/image-20251210110413-vibyjpj.png)
+![image](../assets/image-20251210110413-vibyjpj.png)
 
 pub/sub 中引入了一个概念叫 channel（频道），发布订阅机制的实现就是基于这个 channel 来做的。pub/sub 涉及发布者（Publisher）和订阅者（Subscriber，也叫消费者）两个角色：发布者通过 PUBLISH 投递消息给指定 channel。订阅者通过SUBSCRIBE订阅它关心的 channel。并且，订阅者可以订阅一个或者多个 channel。
 
@@ -225,7 +225,7 @@ pub/sub 既能单播又能广播，还支持 channel 的简单正则匹配。不
 
 ​`Stream` 的结构如下：
 
-![image](assets/image-20251210110655-ugt5c0b.png)
+![image](../assets/image-20251210110655-ugt5c0b.png)
 
 这是一个有序的消息链表，每个消息都有一个唯一的 ID 和对应的内容。ID 是一个时间戳和序列号的组合，用来保证消息的唯一性和递增性。内容是一个或多个键值对（类似 Hash 基本数据类型），用来存储消息的数据。
 
@@ -248,7 +248,7 @@ Redis 提供了两个命令来生成 RDB 快照文件：
 
 子进程采用的是==copy-on-write==技术：
 
-![image](assets/image-20250824163520-unibs4q.png)
+![image](../assets/image-20250824163520-unibs4q.png)
 
 - 当主进程执行读操作时，访问共享内存
 - 当主进程执行写操作时，则会拷贝一份数据，执行写操作
@@ -259,7 +259,7 @@ AOF（append only file）。与快照持久化相比，AOF 持久化的实时性
 
 开启 AOF 持久化后每执行一条会更改 Redis 中的数据的命令，Redis 就会将该命令写入到 AOF 缓冲区 `server.aof_buf`​ 中，然后再写入到内核缓冲区中，最后再根据持久化方式（ `fsync`策略）的配置来决定何时将系统内核缓存区的数据同步到硬盘中的。
 
-![image](assets/image-20251211142607-wpsih2o.png)
+![image](../assets/image-20251211142607-wpsih2o.png)
 
 **AOF 工作的基本流程**
 
@@ -279,7 +279,7 @@ Redis 4.0开始支持RDB和AOF的混合持久化。
 
 **Redis 基于 Reactor 模式设计开发了一套高效的事件处理模型**（Netty 的线程模型也基于 Reactor 模式），这套事件处理模型对应的是 Redis 中的文件==事件处理器（file event handler）==。由于文件事件处理器（file event handler）是单线程方式运行的，所以我们一般都说 Redis 是单线程模型。
 
-![image](assets/image-20251211152539-x40qa4x.png)
+![image](../assets/image-20251211152539-x40qa4x.png)
 
 Redis 通过 **IO 多路复用程序** 来监听来自客户端的大量连接（或者说是监听多个 socket），它会将感兴趣的事件及类型（读、写）注册到内核中并监听每个事件是否发生。
 
@@ -294,7 +294,7 @@ Redis 通过 **IO 多路复用程序** 来监听来自客户端的大量连接�
 
 ## Redis 内存管理
 
-![image](assets/image-20251212160311-h28s8kh.png)
+![image](../assets/image-20251212160311-h28s8kh.png)
 
 **redis 如何判断数据是否过期**
 
@@ -341,7 +341,7 @@ Redis 提供了 6 种内存淘汰策略：
 
 ### 缓存穿透
 
-![image](assets/image-20251212171818-zm8661p.png)
+![image](../assets/image-20251212171818-zm8661p.png)
 
 请求的key 即不在缓存中，也不在数据库中，导致这些请求直接到了数据库上，根本没有经过缓存这一层，对数据库造成了巨大的压力。
 
@@ -369,7 +369,7 @@ Redis 提供了 6 种内存淘汰策略：
 
 ### 缓存击穿
 
-![image](assets/image-20251215135940-f2zttyw.png)
+![image](../assets/image-20251215135940-f2zttyw.png)
 
 热点key过期，导致大量的请求打到数据库上，对数据库造成了巨大的压力
 
@@ -382,7 +382,7 @@ Redis 提供了 6 种内存淘汰策略：
 
 ### 缓存雪崩
 
-![image](assets/image-20251215140612-3eaxtug.png)
+![image](../assets/image-20251215140612-3eaxtug.png)
 
 缓存在同一时间大面积的失效，导致大量的请求都直接落到了数据库上，对数据库造成了巨大的压力。
 

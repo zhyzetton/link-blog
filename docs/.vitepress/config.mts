@@ -40,6 +40,7 @@ export default defineConfig({
           items: [
             { text: 'MySQL', link: '/job/database/mysql' },
             { text: 'Redis', link: '/job/database/redis' },
+            { text: 'MongoDB', link: '/job/database/mongodb' },
           ]
         }
       ]
