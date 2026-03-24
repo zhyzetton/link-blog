@@ -1,42 +1,39 @@
 name: Deploy VitePress site to Pages
 
 on:
-push:
-branches: [main]
+  push:
+    branches: [main]
 
 permissions:
-contents: read
-pages: write
-id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-```
-steps:
-  - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
 
-  - uses: pnpm/action-setup@v3
-    with:
-      version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
 
-  - uses: actions/setup-node@v4
-    with:
-      node-version: 18
-      cache: pnpm
+      - run: pnpm install
 
-  - run: pnpm install
+      - run: pnpm docs:build
 
-  - run: pnpm docs:build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
 
-  - uses: actions/upload-pages-artifact@v3
-    with:
-      path: docs/.vitepress/dist
-```
-
-deploy:
-needs: build
-runs-on: ubuntu-latest
-steps:
-- uses: actions/deploy-pages@v4
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4
