@@ -1,9 +1,5 @@
 name: Deploy VitePress site to Pages
 
-# ⚡ 强制所有 Actions 使用 Node.js 24
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   push:
     branches: [main]
@@ -15,29 +11,28 @@ permissions:
 
 jobs:
   build:
+    # 强制整个 job 使用 Node24 环境
     runs-on: ubuntu-latest
-    steps:
-      # 检出代码
-      - uses: actions/checkout@v4
+    env:
+      # ⚡ 强制 Actions 使用 Node.js 24
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-      # 安装 pnpm 最新版本
+    steps:
+      - uses: actions/checkout@v5
+
       - uses: pnpm/action-setup@v4
         with:
           version: 8
 
-      # 设置 Node.js（缓存 pnpm 依赖）
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: pnpm
+          node-version: 24
+          cache: 'pnpm'
 
-      # 安装依赖
       - run: pnpm install
 
-      # 构建 VitePress
       - run: pnpm docs:build
 
-      # 上传构建产物到 Pages artifact
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
@@ -45,6 +40,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      # 部署到 GitHub Pages
       - uses: actions/deploy-pages@v4
