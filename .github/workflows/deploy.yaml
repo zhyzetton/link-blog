@@ -11,36 +11,33 @@ permissions:
 
 jobs:
   build:
-    # 强制整个 job 使用 Node24 环境
     runs-on: ubuntu-latest
-    env:
-      # ⚡ 强制 Actions 使用 Node.js 24
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
+      # 已为最新版（支持 Node24）
       - uses: actions/checkout@v5
 
+      # 最新版，支持 Node24
       - uses: pnpm/action-setup@v4
         with:
           version: 8
 
-      - uses: actions/setup-node@v4
+      # 🔥 关键升级：v4 → v5（官方支持 Node24 的版本）
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: 'pnpm'
 
       - run: pnpm install
-
       - run: pnpm docs:build
 
-      - uses: actions/upload-pages-artifact@v3
+      # 🔥 升级：v3 → v4（支持 Node24）
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: docs/.vitepress/dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/deploy-pages@v4
+      # 🔥 升级：v4 → v5（支持 Node24）
+      - uses: actions/deploy-pages@v5
