@@ -18,8 +18,10 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: '八股相关', link: '/job/java/basic' }
+      { text: '主页', link: '/' },
+      { text: '八股相关', link: '/job/java/basic' },
+      { text: '语言', link: '/language/rust' },
+      { text: '框架', link: '/framework/react' },
     ],
 
     sidebar: {
@@ -41,6 +43,29 @@ export default defineConfig({
             { text: 'MySQL', link: '/job/database/mysql' },
             { text: 'Redis', link: '/job/database/redis' },
             { text: 'MongoDB', link: '/job/database/mongodb' },
+          ]
+        },
+        {
+          text: '系统设计',
+          items: [
+            { text: '定时任务', link: '/job/sys_design/scheduled' },
+            { text: '实时消息推送', link: '/job/sys_design/realtime' },
+            
+          ]
+        }
+      ],
+      '/language/': [
+        {
+          items: [
+            { text: 'Rust 基础', link: '/language/rust'},
+          ]
+        }
+      ],
+      '/framework/': [
+        {
+          items: [
+            { text: 'React 基础', link: '/framework/react'},
+            { text: 'Svelte5 基础', link: '/framework/svelte5'},
           ]
         }
       ]

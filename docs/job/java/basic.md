@@ -38,8 +38,6 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 
 缺点：AOT 编译无法支持 Java 的一些动态特性，如反射、动态代理、动态加载、JNI（Java Native Interface）等。
 
-JDK、JRE、JVM、JIT这四者的关系如下图所示
-
 
 ## ⭐移位运算符
 
