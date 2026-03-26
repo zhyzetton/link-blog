@@ -589,13 +589,14 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
   2. 带初始容量参数的构造函数，用户自己指定容量
   3. 构造包含指定collection元素的列表，这些元素利用该集合的迭代器按顺序返回
 
-  add 方法：
+  **扩容：**
+  1. 首次添加元素（触发第一次扩容）
 
-  当 `minCapacity - elementData.length`​ > 0 时，进入 `grow(minCapacity)`
+  初始数组是空数组，容量0。默认扩容到10（JDK8 首次扩容固定为10）。数组变为长度为10的空数组，存入元素。
 
-  grow方法：
+  2. 添加第11个元素（触发常规扩容）。
 
-  将新容量更新为旧容量的1.5倍
+  已经存了10个元素，添加第11个元素，触发扩容。`新容量 = 旧容量 + 旧容量 >> 1`，即扩容为原来的1.5倍。
 
   ```java
   int newCapacity = oldCapacity + (oldCapacity >> 1);
@@ -620,7 +621,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 ### Set
 
-- ​`HashSet`​(无序，唯一): 基于 `HashMap`​ 实现的，底层采用 `HashMap` 来保存元素。
+- ​`HashSet`​(无序，唯一): 基于 `HashMap`​ 实现的，底层采用 `HashMap` 来保存元素（key 存元素，value 存统一对象）。
 - ​`LinkedHashSet`​: `LinkedHashSet`​ 是 `HashSet`​ 的子类，并且其内部是通过 `LinkedHashMap` 来实现的。
 - ​`TreeSet`(有序，唯一): 红黑树(自平衡的排序二叉树)
 

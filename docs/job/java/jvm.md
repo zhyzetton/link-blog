@@ -1,4 +1,5 @@
 # JVM
+
 ## ⭐JVM 内存区域的组成
 
 ![image](../assets/image-20251203154436-dowa50h.png)

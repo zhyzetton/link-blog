@@ -162,7 +162,7 @@ private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(1
 
 Spring 的三级缓存包括：
 1. **一级缓存（singletonObjects）**：存放最终形态的 Bean（已经实例化、属性填充、初始化）。
-2. **二级缓存（earlySingletonObjects）**：存放过渡 Bean（半成品，尚未属性填充），也就是三级缓存中ObjectFactory产生的对象，与三级缓存配合使用的，可以防止 AOP 的情况下，每次调用ObjectFactory#getObject()都是会产生新的代理对象的。
+2. **二级缓存（earlySingletonObjects）**：存放过渡 Bean（半成品，尚未属性填充），也就是三级缓存中ObjectFactory产生的对象，与三级缓存配合使用的，可以防止 AOP 的情况下，每次调用ObjectFactory::getObject()都是会产生新的代理对象的。
   
   ![二级缓存](../assets/image-20250903161426-dkoiv85.png)
 

@@ -96,7 +96,7 @@ node_number = hash(key) % 2^32
 - 基于分布式协调服务 ZooKeeper 实现分布式锁。
 - 基于分布式键值存储系统比如 Redis 、Etcd 实现分布式锁。
 
-### **基于 Redis 实现分布式锁**
+### ⭐**基于 Redis 实现分布式锁**
 
 使用 `SETNX`​ 命令实现互斥。`SETNX`​ 即 `SET if Not eXists` (对应 Java 中的 setIfAbsent 方法)，如果 key 不存在的话，才会设置 key 的值。如果 key 已经存在， SETNX 啥也不做。
 
