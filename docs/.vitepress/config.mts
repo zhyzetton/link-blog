@@ -42,6 +42,7 @@ export default defineConfig({
           items: [
             { text: 'MySQL', link: '/job/database/mysql' },
             { text: 'Redis', link: '/job/database/redis' },
+            { text: 'Elasticsearch', link: '/job/database/elasticsearch' },
             { text: 'MongoDB', link: '/job/database/mongodb' },
           ]
         },
@@ -50,6 +51,7 @@ export default defineConfig({
           items: [
             { text: '定时任务', link: '/job/sys_design/scheduled' },
             { text: '实时消息推送', link: '/job/sys_design/realtime' },
+            { text: '场景题', link: '/job/sys_design/scene' },
             
           ]
         }

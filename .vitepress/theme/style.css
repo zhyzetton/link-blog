@@ -1,0 +1,183 @@
+/* Pixel Art Style Overrides */
+
+/* Override border radius to be sharp */
+:root {
+  --vp-radius-s: 0px;
+  --vp-radius-m: 0px;
+  --vp-radius-l: 0px;
+}
+
+/* Global pixel art styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Navigation bar */
+.VPNav {
+  border-bottom: 2px solid black !important;
+  background: white !important;
+}
+
+.VPNavBar {
+  border-bottom: none !important;
+}
+
+/* Buttons - pixel style */
+.VPButton {
+  border-radius: 0 !important;
+  font-family: monospace !important;
+  transition: all 0.1s ease !important;
+}
+
+.VPButton.primary {
+  background: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+  box-shadow: 4px 4px 0px 0px rgba(255, 0, 110, 1) !important;
+}
+
+.VPButton.primary:hover {
+  box-shadow: none !important;
+  transform: translate(2px, 2px) !important;
+}
+
+.VPButton.alt {
+  background: white !important;
+  color: black !important;
+  border: 2px solid black !important;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+}
+
+.VPButton.alt:hover {
+  box-shadow: none !important;
+  transform: translate(2px, 2px) !important;
+}
+
+/* Cards */
+.VPCard {
+  border-radius: 0 !important;
+  border: 2px solid black !important;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+  transition: all 0.1s ease !important;
+}
+
+.VPCard:hover {
+  box-shadow: 4px 4px 0px 0px rgba(255, 0, 110, 1) !important;
+  transform: translate(-2px, -2px) !important;
+}
+
+/* Home page hero */
+.VPHero {
+  background: white !important;
+}
+
+.VPHero .image-container {
+  border: 4px solid black !important;
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.VPHero .image-container img {
+  border-radius: 0 !important;
+  image-rendering: pixelated !important;
+}
+
+.VPHero .name {
+  font-family: monospace !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.VPHero .text {
+  font-family: monospace !important;
+  font-weight: 900 !important;
+}
+
+.VPHero .tagline {
+  font-family: monospace !important;
+  color: #666 !important;
+}
+
+/* Feature cards on home */
+.VPFeature {
+  border-radius: 0 !important;
+  border: 2px solid black !important;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+  transition: all 0.1s ease !important;
+}
+
+.VPFeature:hover {
+  box-shadow: 4px 4px 0px 0px rgba(255, 0, 110, 1) !important;
+  transform: translate(-2px, -2px) !important;
+}
+
+.VPFeature .title {
+  font-family: monospace !important;
+  font-weight: 900 !important;
+}
+
+.VPFeature .details {
+  font-family: monospace !important;
+}
+
+/* Features section spacing */
+.VPFeatures {
+  padding: 48px 0 !important;
+  background: white !important;
+}
+
+.VPFeatures .title {
+  font-family: monospace !important;
+}
+
+/* Home content wrapper */
+.VPHome {
+  padding-bottom: 0 !important;
+}
+
+/* Code blocks */
+div[class*='language-'] {
+  border-radius: 0 !important;
+  border: 2px solid black !important;
+}
+
+pre code {
+  font-family: 'Fira Code', 'Consolas', monospace !important;
+}
+
+/* Links */
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #ff006e !important;
+}
+
+/* Sidebar */
+.VPSidebar {
+  border-right: 2px solid black !important;
+}
+
+/* Footer */
+.VPFooter {
+  border-top: 4px solid black !important;
+  background: black !important;
+  color: white !important;
+}
+
+/* Image rendering - pixelated for pixel art */
+img {
+  image-rendering: pixelated !important;
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: crisp-edges !important;
+}
+
+/* Custom containers */
+.custom-container {
+  border: 2px solid black !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+}
