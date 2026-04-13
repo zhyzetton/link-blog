@@ -48,37 +48,34 @@ features:
     linkText: 敬请期待
 ---
 
-<section class="home-section recent-posts">
-  <div class="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-16">
-    <h2 class="font-black text-2xl md:text-4xl mb-8 md:mb-12 border-b-4 border-black pb-4">
-      最新文章
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-      <a href="/job/java/concurrent" class="block bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 hover:shadow-[4px_4px_0px_0px_rgba(255,0,110,1)] hover:-translate-y-1 transition-all">
-        <h3 class="font-black text-lg md:text-xl mb-2">Java 并发编程</h3>
-        <p class="font-mono text-sm text-gray-700">线程、锁、并发容器、线程池等核心知识点</p>
-        <span class="font-mono text-xs text-gray-500 mt-4 block">2024-03</span>
-      </a>
-      <a href="/job/database/mysql" class="block bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 hover:shadow-[4px_4px_0px_0px_rgba(255,0,110,1)] hover:-translate-y-1 transition-all">
-        <h3 class="font-black text-lg md:text-xl mb-2">MySQL 实战</h3>
-        <p class="font-mono text-sm text-gray-700">索引、事务、锁、日志、性能优化等</p>
-        <span class="font-mono text-xs text-gray-500 mt-4 block">2024-03</span>
-      </a>
-      <a href="/job/sys_design/scheduled" class="block bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 hover:shadow-[4px_4px_0px_0px_rgba(255,0,110,1)] hover:-translate-y-1 transition-all">
-        <h3 class="font-black text-lg md:text-xl mb-2">定时任务系统设计</h3>
-        <p class="font-mono text-sm text-gray-700">单机定时、多级队列、分布式调度方案</p>
-        <span class="font-mono text-xs text-gray-500 mt-4 block">2024-02</span>
-      </a>
-    </div>
+<section class="home-section">
+  <div class="recent-posts-header">
+    <h2>最新文章</h2>
+    <p>最近更新的笔记和八股文</p>
   </div>
+  <RecentPosts />
 </section>
 
 <style>
 .home-section {
-  margin-top: 40px;
-  padding: 18px;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
-.recent-posts {
-  background: #f5f5f5;
+.recent-posts-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 1rem;
+}
+.recent-posts-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--vp-c-text-1);
+}
+.recent-posts-header p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
 }
 </style>

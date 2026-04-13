@@ -1,6 +1,6 @@
 # Java基础
 
-## ⭐JVM、JDK、JRE区别
+## <span class="star-badge">⭐</span> JVM、JDK、JRE区别
 
 ![image](../assets/image-20251120142123-zk4vie0.png)
 
@@ -15,7 +15,7 @@
   1. JVM
   2. Java基础类库（Class Library）：一组标准的类库，提供常用的功能和 API（如 I/O 操作、网络通信、数据结构等）。
 
-## ⭐什么是字节码
+## <span class="star-badge">⭐</span> 什么是字节码
 
 在 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class` 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。
 
@@ -39,7 +39,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 缺点：AOT 编译无法支持 Java 的一些动态特性，如反射、动态代理、动态加载、JNI（Java Native Interface）等。
 
 
-## ⭐移位运算符
+## <span class="star-badge">⭐</span> 移位运算符
 
 移位运算符是最基本的运算符之一，移位操作中，被操作的数据被视为二进制数，移位就是将其向左或向右移动若干位的运算。
 
@@ -52,7 +52,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 
 移位操作实际上只支持int和long，编译器在对short、byte、char类型移位前，都会将其转为int
 
-## ⭐基本数据类型与包装类型
+## <span class="star-badge">⭐</span> 基本数据类型与包装类型
 
 ![image](../assets/image-20251120143655-3t4v0fl.png)
 
@@ -99,14 +99,14 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 
 使用`BigInteger`
 
-## ⭐成员变量与局部变量
+## <span class="star-badge">⭐</span> 成员变量与局部变量
 
 - 成员变量是属于类的，而局部变量是在代码块或方法中定义的变量或是方法的参数；
 - 如果成员变量是使用 `static`​ 修饰的，那么这个成员变量是属于类的，如果没有使用 `static` 修饰，这个成员变量是属于实例的。而对象存在于堆内存，局部变量则存在于栈内存。
 - 成员变量是对象的一部分，它随着对象的创建而存在，而局部变量随着方法的调用而自动生成，随着方法的调用结束而消亡。
 - 成员变量如果没有被赋初始值，则会自动以类型的默认值而赋值（一种情况例外:被 `final` 修饰的成员变量也必须显式地赋值），而局部变量则不会自动赋值。
 
-## ⭐重载和重写的区别
+## <span class="star-badge">⭐</span> 重载和重写的区别
 
 - 重载：发生在同一个类中（或者父类和子类之间），方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同。
 
@@ -119,7 +119,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 
 ![image](../assets/image-20251120170043-5lkkdvf.png)
 
-⭐：如果方法的返回类型是 void 和基本数据类型，则返回值重写时不可修改。但是如果方法的返回值是引用类型，重写时是可以返回该引用类型的子类的。
+<span class="star-badge">⭐</span> ：如果方法的返回类型是 void 和基本数据类型，则返回值重写时不可修改。但是如果方法的返回值是引用类型，重写时是可以返回该引用类型的子类的。
 
 ---
 
@@ -129,7 +129,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
 
 遇到方法重载的情况，优先匹配固定参数的方法
 
-## ⭐面向对象三大特征
+## <span class="star-badge">⭐</span> 面向对象三大特征
 
 - 封装
 
@@ -152,7 +152,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
   - 多态不能调用“只在子类存在但在父类不存在”的方法；
   - 如果子类重写了父类的方法，真正执行的是子类重写的方法，如果子类没有重写父类的方法，执行的是父类的方法。
 
-## ⭐接口和抽象类的异同
+## <span class="star-badge">⭐</span> 接口和抽象类的异同
 
 共同点：
 
@@ -170,7 +170,7 @@ JDK 9 引入了一种新的编译模式 AOT(Ahead of Time Compilation) 。和 JI
   - Java 8 之前，接口中的方法默认是 `public abstract`​ ，也就是只能有方法声明。自 Java 8 起，可以在接口中定义 `default`​（默认） 方法和 `static`​ （静态）方法。 自 Java 9 起，接口可以包含 `private` 方法。
   - 抽象类可以包含抽象方法和非抽象方法。抽象方法没有方法体，必须在子类中实现。非抽象方法有具体实现，可以直接在抽象类中使用或在子类中重写。
 
-## ⭐Object 类的常见方法
+## <span class="star-badge">⭐</span> Object 类的常见方法
 
 Object 类是一个特殊的类，是所有类的父类，主要提供了以下 11 个方法：
 
@@ -221,7 +221,7 @@ public final void wait() throws InterruptedException
 protected void finalize() throws Throwable { }
 ```
 
-### ⭐`==` 和 `equals()` 的区别
+### <span class="star-badge">⭐</span> `==` 和 `equals()` 的区别
 
 因为 Java 只有值传递，所以，对于 == 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是==引用类型变量存的值是对象的地址==。
 
@@ -231,13 +231,13 @@ protected void finalize() throws Throwable { }
 
 当创建 `String`​ 类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个 `String` 对象。
 
-### ⭐hashCode 和 equals
+### <span class="star-badge">⭐</span> hashCode 和 equals
 
 - 如果两个对象的`hashCode` 值相等，那这两个对象不一定相等（哈希碰撞）。
 - 如果两个对象的`hashCode`​ 值相等并且`equals()`​方法也返回 `true`，我们才认为这两个对象相等。
 - 如果两个对象的`hashCode` 值不相等，我们就可以直接认为这两个对象不相等。
 
-## ⭐String、StringBuffer、StringBuilder
+## <span class="star-badge">⭐</span> String、StringBuffer、StringBuilder
 
 **可变性**
 
@@ -245,7 +245,7 @@ protected void finalize() throws Throwable { }
 
 ​`StringBuilder`​ 与 `StringBuffer`​ 都继承自 `AbstractStringBuilder`​ 类，在 `AbstractStringBuilder`​ 中也是使用字符数组保存字符串，不过没有使用 `final`​ 和 `private`​ 关键字修饰，最关键的是这个 `AbstractStringBuilder`​ 类还提供了很多修改字符串的方法比如 `append` 方法。
 
-**⭐线程安全性**
+**<span class="star-badge">⭐</span> 线程安全性**
 
 - String不可变，可以理解为线程安全
 - ​`StringBuffer` 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。
@@ -259,12 +259,12 @@ protected void finalize() throws Throwable { }
 
 ---
 
-### ⭐String 为什么是不可变的
+### <span class="star-badge">⭐</span> String 为什么是不可变的
 
 1. 保存字符串的数组被 `final`​ 修饰且为私有的，并且`String` 类没有提供/暴露修改这个字符串的方法。
 2. ​`String`​ 类被 `final`​ 修饰导致其不能被继承，进而避免了子类破坏 `String` 不可变。
 
-### ⭐字符串拼接用+还是StringBuilder
+### <span class="star-badge">⭐</span> 字符串拼接用+还是StringBuilder
 
 Java 语言本身并不支持运算符重载，“+”和“+=”是专门为 String 类重载过的运算符，也是 Java 中仅有的两个重载过的运算符。
 
@@ -274,7 +274,7 @@ Java 语言本身并不支持运算符重载，“+”和“+=”是专门为 St
 
 [字符串常量池](#20251216172641-ez10du4)
 
-### ⭐String s1 new String("abc") 创建了几个字符串对象
+### <span class="star-badge">⭐</span> String s1 new String("abc") 创建了几个字符串对象
 
 会创建1个或2个字符串对象
 
@@ -282,7 +282,7 @@ Java 语言本身并不支持运算符重载，“+”和“+=”是专门为 St
 2. 字符串常量池中已存在 "abc"：会创建 1 个 字符串对象。该对象在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
 
 ## 异常相关
-### ⭐Checked Exception 和 Unchecked Exception 的区别
+### <span class="star-badge">⭐</span> Checked Exception 和 Unchecked Exception 的区别
 
 ![image](../assets/image-20251120200854-gfa6kas.png)
 
@@ -323,14 +323,14 @@ Java 语言本身并不支持运算符重载，“+”和“+=”是专门为 St
 
 ---
 
-### ⭐异常使用有哪些需要注意的地方
+### <span class="star-badge">⭐</span> 异常使用有哪些需要注意的地方
 
 - 不要把异常定义为静态变量，因为这样会导致异常栈信息错乱。每次手动抛出异常，我们都需要==手动 new== 一个异常对象抛出。
 - 抛出的异常信息一定要==有意义==。
 - 建议抛出更加具体的异常，比如字符串转换为数字格式错误的时候应该抛出`NumberFormatException`​而不是其父类`IllegalArgumentException`。
 - 避免重复记录日志：如果在捕获异常的地方已经记录了足够的信息（包括异常类型、错误信息和堆栈跟踪等），那么在业务代码中再次抛出这个异常时，就不应该再次记录相同的错误信息。重复记录日志会使得日志文件膨胀，并且可能会掩盖问题的实际原因，使得问题更难以追踪和解决。
 
-## ⭐反射
+## <span class="star-badge">⭐</span> 反射
 
 Java 反射 (Reflection) 是一种在程序运行时，动态地获取类的信息并操作类或对象（方法、属性）的能力。
 
@@ -519,7 +519,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 在 CGLIB 动态代理机制中 `MethodInterceptor`​ 接口和 `Enhancer` 类是核心。
 
-### ⭐JDK 动态代理与 CGLIB 动态代理对比
+### <span class="star-badge">⭐</span> JDK 动态代理与 CGLIB 动态代理对比
 
 - ==JDK 动态代理只能代理实现了接口的类或者直接代理接口，而 CGLIB 可以代理未实现任何接口的类==​ **。**  另外， CGLIB 动态代理是通过生成一个被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为 final 类型的类和方法，private 方法也无法代理。
 - 就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK 版本的升级，这个优势更加明显。
@@ -546,7 +546,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 ## 集合
 
-### ⭐List, Set, Queue, Map 区别
+### <span class="star-badge">⭐</span> List, Set, Queue, Map 区别
 
 - ​`List`(对付顺序的好帮手): 存储的元素是有序的、可重复的。
 - ​`Set`(注重独一无二的性质): 存储的元素不可重复的。
@@ -557,7 +557,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 - ​`ArrayList`​：`Object[]` 数组。
 
-  **⭐与Array的区别**
+  **<span class="star-badge">⭐</span> 与Array的区别**
 
   - ArrayList 会根据实际存储的元素动态地扩容或缩容，Array创建后不可更改
   - ArrayList 允许使用泛型
@@ -565,7 +565,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
   - ArrayList 支持插入、删除、遍历，提供了丰富的API，Array只是固定长度数组，只能下标访问
   - ArrayList 创建时不需要指定大小
 
-  **⭐插入和删除元素的时间复杂度**
+  **<span class="star-badge">⭐</span> 插入和删除元素的时间复杂度**
 
   插入：
 
@@ -579,7 +579,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
   - 尾部删除：O(1)
   - 指定位置删除：O(n)
 
-  **⭐ArrayList 扩容机制**
+  **<span class="star-badge">⭐</span> ArrayList 扩容机制**
 
   三种初始化方式：
 
@@ -606,13 +606,13 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 - ​`Vector`​：`Object[]` 数组。
 - ​`LinkedList`：双向链表(JDK1.6 之前为循环链表，JDK1.7 取消了循环)。
 
-  ⭐插入删除时间复杂度
+  <span class="star-badge">⭐</span> 插入删除时间复杂度
 
   - 头部插入/删除：修改头节点指针，O(1)
   - 尾部插入/删除：修改尾节点指针，O(1)
   - 指定位置插入/删除：先移动到指定位置，再修改指针，O(n)
 
-  ⭐ArrayList 与 LinkedList 区别
+  <span class="star-badge">⭐</span> ArrayList 与 LinkedList 区别
 
   - 都不是线程安全的
   - 底层数据结构：ArrayList 是 Object数组；LinkedList 是双向链表
@@ -681,7 +681,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 事实上，`Deque`​ 还提供有 `push()`​ 和 `pop()` 等其他方法，可用于模拟栈。
 
-### ⭐ArrayBlockingQueue 和 LinkedBlockingQueue 区别
+### <span class="star-badge">⭐</span> ArrayBlockingQueue 和 LinkedBlockingQueue 区别
 
 ​`ArrayBlockingQueue`​ 和 `LinkedBlockingQueue` 是 Java 并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
 
@@ -717,7 +717,7 @@ Java 中的 NIO ，有一个非常重要的==选择器 ( Selector )== 的概念�
 
 ### HashMap
 
-#### ⭐HashMap 底层实现
+#### <span class="star-badge">⭐</span> HashMap 底层实现
 **JDK 1.8 之前**
 
 ​`HashMap`​ 底层是 ==数组和链表== 结合在一起使用也就是 ==链表散列。==
@@ -742,17 +742,17 @@ JDK1.8 之后在解决哈希冲突时有了较大的变化，当链表长度大�
 
 优先扩容而不是直接转为红黑树的原因：数组扩容能减少哈希冲突的发生概率，在大多数情况下比直接转换为红黑树更高效。
 
-#### ⭐HashMap 的长度为什么是2的幂次方
+#### <span class="star-badge">⭐</span> HashMap 的长度为什么是2的幂次方
 
 ==取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&)操作==（也就是说 `hash%length==hash&(length-1)`​ 的前提是 length 是 2 的 n 次方）。并且，==采用二进制位操作 & 相对于 % 能够提高运算效率==​ **。**
 
-#### ⭐HashMap JDK1.7 多线程操作导致死循环问题
+#### <span class="star-badge">⭐</span> HashMap JDK1.7 多线程操作导致死循环问题
 
 由于当一个桶位中有多个元素需要进行扩容时，多个线程同时对链表进行操作，头插法可能会导致链表中的节点指向错误的位置，从而形成一个环形链表，进而使得查询元素的操作陷入死循环无法结束。
 
 为了解决这个问题，JDK1.8 版本的 HashMap 采用了尾插法而不是头插法来避免链表倒置，使得插入的节点永远都是放在链表的末尾，避免了链表中的环形结构。但是还是不建议在多线程下使用 `HashMap`​，因为多线程下使用 `HashMap`​ 还是会存在数据覆盖的问题。并发环境下，推荐使用 `ConcurrentHashMap` 。
 
-#### ⭐HashMap 为什么线程不安全
+#### <span class="star-badge">⭐</span> HashMap 为什么线程不安全
 
 ​`HashMap`​ 不是线程安全的。在多线程环境下对 `HashMap` 进行并发写操作，可能会导致两种主要问题：
 
@@ -762,7 +762,7 @@ JDK1.8 之后在解决哈希冲突时有了较大的变化，当链表长度大�
 JDK 1.8 后，在 `HashMap`​ 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对 `HashMap`​ 的 `put` 操作会导致线程不安全，具体来说会有数据覆盖的风险。
 
 ### CocurrentHashMap
-#### ⭐ConcurrentHashMap 和 Hashtable 的区别
+#### <span class="star-badge">⭐</span> ConcurrentHashMap 和 Hashtable 的区别
 
 **实现线程安全的方式**
 
@@ -776,7 +776,7 @@ JDK 1.8 后，在 `HashMap`​ 中，多个键值对可能会被分配到同一�
 
 ![image](../assets/image-20251126142849-y322xow.png)
 
-#### ⭐Java 8 ConcurrentHashMap 的实现
+#### <span class="star-badge">⭐</span> Java 8 ConcurrentHashMap 的实现
 
 ​`ConcurrentHashMap`​ 取消了 `Segment`​ 分段锁，采用 `Node + CAS + synchronized`​ 来保证并发安全。数据结构跟 `HashMap` 1.8 的结构类似，数组+链表/红黑二叉树。Java 8 在链表长度超过一定阈值（8）时将链表（寻址时间复杂度为 O(N)）转换为红黑树（寻址时间复杂度为 O(log(N))）。
 

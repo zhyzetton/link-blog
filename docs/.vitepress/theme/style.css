@@ -1,102 +1,67 @@
 /**
- * Notion Style for VitePress
- * 基于 Notion 风格的极简设计
+ * Clean Notion Style for VitePress
  */
 
-/* CSS 变量覆盖 - Notion 风格 */
 :root {
-  /* 颜色 */
-  --vp-c-brand-1: #37352f;
+  /* Typography */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  --vp-font-family-mono: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+  
+  /* Brand colors (monochrome for Notion style) */
+  --vp-c-brand-1: #000000;
   --vp-c-brand-2: #37352f;
-  --vp-c-brand-3: #37352f;
-  --vp-c-brand-soft: rgba(55, 53, 47, 0.1);
+  --vp-c-brand-3: #5a5a5a;
+  --vp-c-brand-soft: rgba(0, 0, 0, 0.05);
 
-  /* 背景色 */
+  /* Backgrounds */
   --vp-c-bg: #ffffff;
-  --vp-c-bg-soft: #f7f6f3;
+  --vp-c-bg-soft: #f7f6f3; /* Notion's subtle gray */
   --vp-c-bg-mute: #efefef;
-  --vp-c-bg-elv: #ffffff;
 
-  /* 边框 */
-  --vp-c-divider: #e5e5e5;
-  --vp-c-border: #e5e5e5;
+  /* Borders & Dividers */
+  --vp-c-divider: #e9e9e7;
+  --vp-c-border: #e9e9e7;
 
-  /* 文字颜色 */
+  /* Text Colors */
   --vp-c-text-1: #37352f;
-  --vp-c-text-2: #6b6b6b;
-  --vp-c-text-3: #9b9b9b;
+  --vp-c-text-2: #787774;
+  --vp-c-text-3: #9b9a97;
 
-  /* 阴影 - Notion 使用微妙的阴影 */
-  --vp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --vp-shadow-2: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --vp-shadow-3: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-  /* 圆角 - Notion 使用适度的圆角 */
+  /* Radii */
   --vp-radius-s: 4px;
   --vp-radius-m: 6px;
   --vp-radius-l: 8px;
 
-  /* 字体 */
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  --vp-font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  /* Sidebar Active */
+  --vp-c-brand-text: var(--vp-c-brand-1);
 }
 
-/* 全局样式 */
-* {
-  box-sizing: border-box;
+.dark {
+  /* Brand colors (inverted for dark mode) */
+  --vp-c-brand-1: #ffffff;
+  --vp-c-brand-2: #e0e0e0;
+  --vp-c-brand-3: #a0a0a0;
+  --vp-c-brand-soft: rgba(255, 255, 255, 0.1);
+
+  /* Backgrounds */
+  --vp-c-bg: #191919;
+  --vp-c-bg-soft: #202020;
+  --vp-c-bg-mute: #2a2a2a;
+
+  /* Borders & Dividers */
+  --vp-c-divider: #2f2f2f;
+  --vp-c-border: #3f3f3f;
+
+  /* Text Colors */
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #9b9b9b;
+  --vp-c-text-3: #6b6b6b;
+
+  /* Sidebar Active */
+  --vp-c-brand-text: var(--vp-c-brand-1);
 }
 
-body {
-  font-family: var(--vp-font-family-base);
-  background-color: #ffffff;
-  color: var(--vp-c-text-1);
-  line-height: 1.6;
-}
-
-/* 导航栏 */
-.VPNav {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid var(--vp-c-divider) !important;
-  backdrop-filter: none !important;
-}
-
-.VPNavBar {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid var(--vp-c-divider) !important;
-}
-
-/* 侧边栏 */
-.VPSidebar {
-  background-color: #f7f6f3 !important;
-  border-right: 1px solid var(--vp-c-divider) !important;
-}
-
-/* 侧边栏项目 */
-.VPSidebarItem .text {
-  color: var(--vp-c-text-1) !important;
-}
-
-.VPSidebarItem:hover .text {
-  color: var(--vp-c-text-1) !important;
-}
-
-.VPSidebarItem.is-active .text {
-  color: var(--vp-c-text-1) !important;
-  font-weight: 600 !important;
-}
-
-/* 链接 */
-a {
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-a:hover {
-  color: #6b6b6b;
-}
-
-/* 标题 */
+/* Base resets & typography */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
@@ -108,180 +73,131 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
+/* Notion-style header borders */
 .vp-doc h1 {
-  font-size: 2rem;
   font-weight: 700;
   border-bottom: 1px solid var(--vp-c-divider);
   padding-bottom: 0.5rem;
 }
 
 .vp-doc h2 {
-  font-size: 1.5rem;
   border-bottom: 1px solid var(--vp-c-divider);
   padding-bottom: 0.5rem;
 }
 
-/* 代码块 */
+/* Subtle shadows & Cards */
+.VPCard {
+  border: 1px solid var(--vp-c-divider) !important;
+  background-color: var(--vp-c-bg) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.VPCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-2px);
+}
+.dark .VPCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Code blocks */
 .vp-doc div[class*='language-'] {
-  background-color: #f7f6f3;
   border: 1px solid var(--vp-c-divider);
   border-radius: var(--vp-radius-m);
 }
 
-.vp-doc pre {
-  background-color: #f7f6f3;
-  border-radius: var(--vp-radius-m);
-}
-
-.vp-doc code {
-  background-color: #f7f6f3;
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
-  font-family: var(--vp-font-family-mono);
-  font-size: 0.9em;
-}
-
-/* 表格 */
-.vp-doc table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.vp-doc th,
-.vp-doc td {
-  border: 1px solid var(--vp-c-divider);
-  padding: 0.5rem 0.75rem;
-}
-
-.vp-doc th {
-  background-color: #f7f6f3;
-  font-weight: 600;
-}
-
-/* 引用块 */
+/* Notion Quote blocks */
 .vp-doc blockquote {
-  border-left: 3px solid var(--vp-c-divider);
-  background-color: #f7f6f3;
+  border-left: 3px solid var(--vp-c-brand-1);
+  background-color: var(--vp-c-bg-soft);
   padding: 0.75rem 1rem;
   border-radius: 0 var(--vp-radius-m) var(--vp-radius-m) 0;
   margin: 1rem 0;
+  color: var(--vp-c-text-1);
 }
-
 .vp-doc blockquote p {
+  color: var(--vp-c-text-1);
   margin: 0;
-  color: var(--vp-c-text-2);
 }
 
-/* 自定义容器 */
-.vp-doc .custom-block {
-  border-radius: var(--vp-radius-m);
-  padding: 1rem;
-  margin: 1rem 0;
-}
-
-.vp-doc .custom-block.tip {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-}
-
-.vp-doc .custom-block.warning {
-  background-color: #fefce8;
-  border: 1px solid #fef08a;
-}
-
-.vp-doc .custom-block.danger {
-  background-color: #fef2f2;
-  border: 11px solid #fecaca;
-}
-
-/* Home 页面 */
-.VPHero {
-  padding: 3rem 2rem;
-}
-
-.VPHero .name {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-.VPHero .text {
-  font-weight: 400;
-  color: var(--vp-c-text-2);
-}
-
-/* 功能卡片 */
+/* Feature cards */
 .VPFeature {
-  background-color: #ffffff;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: var(--vp-radius-l);
-  transition: all 0.2s ease;
+  background-color: var(--vp-c-bg) !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: var(--vp-radius-l) !important;
+  transition: all 0.2s ease !important;
 }
 
 .VPFeature:hover {
-  border-color: #d4d4d4;
-  box-shadow: var(--vp-shadow-2);
+  border-color: var(--vp-c-border) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+}
+.dark .VPFeature:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
 }
 
 .VPFeature .title {
-  font-weight: 600;
-  color: var(--vp-c-text-1);
+  font-weight: 600 !important;
+  color: var(--vp-c-text-1) !important;
 }
 
-/* 搜索框 */
-.VPLocalSearchBox {
-  background-color: rgba(0, 0, 0, 0.5);
+/* Clean up Sidebar Active State so it's obvious */
+.VPSidebarItem.is-active > .item .text,
+.VPSidebarItem.is-active > .text {
+  font-weight: 600 !important;
+  color: var(--vp-c-brand-1) !important;
 }
 
+/* Buttons */
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-bg) !important;
+  border-color: var(--vp-c-brand-1) !important;
+}
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2) !important;
+}
+.VPButton.alt {
+  background-color: var(--vp-c-bg-mute) !important;
+  color: var(--vp-c-text-1) !important;
+  border-color: var(--vp-c-divider) !important;
+}
+.VPButton.alt:hover {
+  background-color: var(--vp-c-divider) !important;
+}
+
+/* Home Page */
+.VPHero .name, .VPHero .text {
+  letter-spacing: -0.03em;
+}
+
+/* Top Nav search box */
 .VPLocalSearchBox .shell {
-  background-color: #ffffff;
-  border-radius: var(--vp-radius-l);
-  box-shadow: var(--vp-shadow-3);
+  background-color: var(--vp-c-bg) !important;
+  border: 1px solid var(--vp-c-divider) !important;
 }
 
-/* 滚动条 */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Custom blocks */
+.vp-doc .custom-block {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--vp-radius-m);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* Star Badge Styling for headings and outline */
+.star-badge {
+  display: inline-block;
+  color: #f5a623;
+  margin-right: 4px;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #d4d4d4;
-  border-radius: 4px;
+/* In the outline, make it absolute so it doesn't mess up text indentation! */
+.VPDocOutlineItem .star-badge {
+  position: absolute;
+  left: -20px;
+  font-size: 0.85em;
+  opacity: 0.8;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #b4b4b4;
-}
-
-/* 选中文字 */
-::selection {
-  background-color: rgba(55, 53, 47, 0.15);
-}
-
-/* Doc 页面内容区 */
-.VPDoc .container {
-  max-width: 100%;
-}
-
-.vp-doc {
-  padding: 2rem;
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .vp-doc h1 {
-    font-size: 1.75rem;
-  }
-
-  .vp-doc h2 {
-    font-size: 1.35rem;
-  }
-
-  .vp-doc {
-    padding: 1.5rem 1rem;
-  }
+/* Ensure outline items have relative positioning to anchor the absolute star */
+.VPDocOutlineItem .outline-link {
+  position: relative;
 }

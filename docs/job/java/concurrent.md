@@ -1,6 +1,6 @@
 # 并发编程
 ## 线程与进程
-### ⭐什么是进程和线程
+### <span class="star-badge">⭐</span> 什么是进程和线程
 进程是程序的一次执行过程，是系统运行程序的基本单位，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。
 
 线程与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享进程的堆和方法区资源，但每个线程有自己的程序计数器、虚拟机栈和本地方法栈，所以系统在产生一个线程，或是在各个线程之间做切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。
@@ -19,7 +19,7 @@ Java 线程采用的是一对一的线程模型，也就是一个 Java 线程对
 
 严格来说，Java 就只有一种方式可以创建线程，那就是通过`new Thread().start()`​创建。不管是哪种方式，最终还是依赖于`new Thread().start()`。
 
-### ⭐线程的生命周期和状态
+### <span class="star-badge">⭐</span> 线程的生命周期和状态
 
 ![线程的状态](../assets/PixPin_2026-03-24_20-13-31.png)
 
@@ -62,13 +62,13 @@ Java 线程采用的是一对一的线程模型，也就是一个 Java 线程对
 - ​`sleep()`​ 是 `Thread`​ 类的静态本地方法，`wait()`​ 则是 `Object` 类的本地方法。
 
 ## 多线程
-### ⭐为什么要使用多线程
+### <span class="star-badge">⭐</span> 为什么要使用多线程
 
 - **从计算机底层来说：**  线程可以比作是轻量级的进程，是程序执行的最小单位，线程间的切换和调度的成本远远小于进程。另外，多核 CPU 时代意味着多个线程可以同时运行，这减少了线程上下文切换的开销。
 - **从当代互联网发展趋势来说：**  现在的系统动不动就要求百万级甚至千万级的并发量，而多线程并发编程正是开发高并发系统的基础，利用好多线程机制可以大大提高系统整体的并发能力以及性能。
 
 
-### ⭐单核CPU支持Java多线程吗
+### <span class="star-badge">⭐</span> 单核CPU支持Java多线程吗
 
 单核 CPU 是支持 Java 多线程的。操作系统通过时间片轮转的方式，将 CPU 的时间分配给不同的线程。尽管单核 CPU 一次只能执行一个任务，但通过快速在多个线程之间切换，可以让用户感觉多个任务是同时进行的。
 
@@ -91,7 +91,7 @@ Java 使用的线程调度是抢占式的。也就是说，JVM 本身不负责�
 - 线程不安全则表示在多线程环境下，对于同一份数据，多个线程同时访问时可能会导致数据混乱、错误或者丢失
 
 ## 死锁
-### ⭐什么是线程死锁
+### <span class="star-badge">⭐</span> 什么是线程死锁
 
 线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。
 
@@ -106,7 +106,7 @@ Java 使用的线程调度是抢占式的。也就是说，JVM 本身不负责�
 
 避免死锁就是在资源分配时，借助于算法（比如银行家算法）对资源分配进行计算评估，使其进入安全状态。
 
-## ⭐Java 内存模型
+## <span class="star-badge">⭐</span> Java 内存模型
 
 ![image](../assets/image-20251126194120-4hcwr8s.png)
 
@@ -147,7 +147,7 @@ Java 使用的线程调度是抢占式的。也就是说，JVM 本身不负责�
 
 在 Java 中，`volatile` 关键字可以禁止指令进行重排序优化。
 
-## ⭐volatile 关键字
+## <span class="star-badge">⭐</span> volatile 关键字
 
 ### 如何保证变量的可见性
 
@@ -210,7 +210,7 @@ java.util.concurrent.atomic 包下的原子变量类使用CAS实现
 - 悲观锁通常用于写比较多的情况
 - 乐观锁通常用于写比较少的情况
 
-### ⭐实现乐观锁
+### <span class="star-badge">⭐</span> 实现乐观锁
 
 - 版本号控制
 
@@ -268,7 +268,7 @@ java.util.concurrent.atomic 包下的原子变量类使用CAS实现
 
 另外，构造方法本身是线程安全的，但如果在构造方法中涉及到共享资源的操作，就需要采取适当的同步措施来保证整个构造过程的线程安全。
 
-### ⭐synchronized 底层原理
+### <span class="star-badge">⭐</span> synchronized 底层原理
 
 ​`synchronized`​ 同步语句块的实现使用的是 `monitorenter`​ 和 `monitorexit`​ 指令，其中 `monitorenter`​ 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
 
@@ -285,7 +285,7 @@ java.util.concurrent.atomic 包下的原子变量类使用CAS实现
 锁主要存在四种状态，依次是：无锁状态、偏向锁状态、轻量级锁状态、重量级锁状态，他们会随着竞争的激烈而逐渐升级。注意锁可以升级不可降级，这种策略是为了提高获得锁和释放锁的效率。
 
 
-### ⭐synchronized 和 volatile 区别
+### <span class="star-badge">⭐</span> synchronized 和 volatile 区别
 
 ​`synchronized`​ 关键字和 `volatile` 关键字是两个互补的存在，而不是对立的存在！
 
@@ -304,7 +304,7 @@ java.util.concurrent.atomic 包下的原子变量类使用CAS实现
 - **公平锁** : 锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
 - **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
 
-### ⭐synchronized 和 ReentrantLock 区别
+### <span class="star-badge">⭐</span> synchronized 和 ReentrantLock 区别
 
 - **都是可重入锁**
 
@@ -334,7 +334,7 @@ java.util.concurrent.atomic 包下的原子变量类使用CAS实现
 
 ​**​`ThreadLocal`​** 类允许每个线程绑定自己的值。
 
-### ⭐TreadLocal 底层原理
+### <span class="star-badge">⭐</span> TreadLocal 底层原理
 
 
 ```java
@@ -355,7 +355,7 @@ ThreadLocalMap 解决hash冲突时，采用的是==线性探测法==
 
 ![image](../assets/image-20251127171534-8rije3r.png)
 
-### ⭐ThreadLocal 内存泄漏问题是怎么导致的
+### <span class="star-badge">⭐</span> ThreadLocal 内存泄漏问题是怎么导致的
 
 每个线程维护一个名为 `ThreadLocalMap`​ 的 map。 当你使用 `ThreadLocal`​ 存储值时，实际上是将值存储在当前线程的 `ThreadLocalMap`​ 中，其中 `ThreadLocal` 实例本身作为 key，而你要存储的值作为 value。
 
@@ -389,7 +389,7 @@ Thread → ThreadLocalMap → Entry(ThreadLocal, value)
 
 线程池就是管理一系列线程的资源池。当有任务要处理时，直接从线程池中获取线程来处理，处理完之后线程并不会立即被销毁，而是等待下一个任务。
 
-### ⭐为什么要用线程池
+### <span class="star-badge">⭐</span> 为什么要用线程池
 
 1. 降低资源消耗：线程池里的线程是可以重复利用的。
 2. 提高响应速度：线程池里通常会维护一定数量的核心线程，任务来了之后，可以直接交给这些已经存在的、空闲的线程去执行，省去了创建线程的时间，任务能够更快地得到处理。
@@ -401,12 +401,12 @@ Thread → ThreadLocalMap → Entry(ThreadLocal, value)
 
 2. 通过 Executors 工具创建(不推荐用于生产环境)
 
-### ⭐为什么不推荐使用内置线程池
+### <span class="star-badge">⭐</span> 为什么不推荐使用内置线程池
 
 参数固化、资源控制失控，易引发 OOM（workQueue 默认无界队列，容量为 `Integer.MAX_VALUE`，任务堆积容易导致 OOM）或系统过载。
 
 
-### 线程池常见参数
+### <span class="star-badge">⭐</span> 线程池核心参数
 
 ​`ThreadPoolExecutor` 3 个最重要的参数：
 
@@ -433,7 +433,7 @@ Thread → ThreadLocalMap → Entry(ThreadLocal, value)
     - 设置了核心线程的存活时间 ：核心线程在空闲时，会处于 WAITING 状态，等待获取任务。如果阻塞等待的时间超过了核心线程存活时间，则该线程会退出工作，将该线程从线程池的工作线程集合中移除，线程状态变为 TERMINATED 状态。
     - 没有设置核心线程的存活时间 ：核心线程在空闲时，会一直处于 WAITING 状态，等待获取任务，核心线程会一直存活在线程池中。
 
-### ⭐线程池的拒绝策略
+### <span class="star-badge">⭐</span> 线程池的拒绝策略
 
 如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，`ThreadPoolExecutor` 定义一些策略:
 
@@ -442,7 +442,7 @@ Thread → ThreadLocalMap → Entry(ThreadLocal, value)
 - ​`ThreadPoolExecutor.DiscardPolicy`：不处理新任务，直接丢弃掉。
 - ​`ThreadPoolExecutor.DiscardOldestPolicy`：此策略将丢弃最早的未处理的任务请求。
 
-### ⭐线程池处理任务的流程
+### <span class="star-badge">⭐</span> 线程池处理任务的流程
 
 ![image](../assets/image-20251127192026-qvc6zey.png)
 
@@ -451,7 +451,7 @@ Thread → ThreadLocalMap → Entry(ThreadLocal, value)
 - 如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。
 - 如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，拒绝策略会调用`RejectedExecutionHandler.rejectedExecution()`方法。
 
-### ⭐线程池中线程异常后，销毁还是复用
+### <span class="star-badge">⭐</span> 线程池中线程异常后，销毁还是复用
 
 简单来说：使用`execute()`​时，未捕获异常导致线程终止，线程池创建新线程替代；使用`submit()`​时，异常被封装在`Future`中，线程继续复用。
 
@@ -562,7 +562,7 @@ AQS （`AbstractQueuedSynchronizer` ，抽象队列同步器）是从 JDK1.5 开
 
 简单来说，AQS 是一个抽象类，为同步器提供了通用的 **执行框架**。它定义了 **资源获取和释放的通用流程**，而具体的资源获取逻辑则由具体同步器通过重写模板方法来实现。 因此，可以将 AQS 看作是同步器的 **基础“底座”** ，而同步器则是基于 AQS 实现的 **具体“应用”**
 
-### ⭐AQS 的原理
+### <span class="star-badge">⭐</span> AQS 的原理
 
 AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制 AQS 是基于 **CLH 锁** （Craig, Landin, and Hagersten locks） 进一步优化实现的。
 

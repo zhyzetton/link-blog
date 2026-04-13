@@ -15,6 +15,7 @@ export default defineConfig({
   themeConfig: {
     outline: {
       level: 'deep',
+      label: '大纲',
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -51,8 +52,14 @@ export default defineConfig({
           items: [
             { text: '定时任务', link: '/job/sys_design/scheduled' },
             { text: '实时消息推送', link: '/job/sys_design/realtime' },
-            { text: '场景题', link: '/job/sys_design/scene' },
-            
+            { text: '场景题[未完成]', link: '/job/sys_design/scene' },
+          ]
+        },
+        {
+          text: '计算机基础',
+          items: [
+            { text: '网络', link: '/job/computer_basic/network' },
+            { text: '操作系统', link: '/job/computer_basic/os' },
           ]
         }
       ],

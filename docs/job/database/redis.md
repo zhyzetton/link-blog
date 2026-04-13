@@ -2,7 +2,7 @@
 
 ## Redis 基础
 
-### ⭐Redis 基本数据类型
+### <span class="star-badge">⭐</span> Redis 基本数据类型
 
 - String
 
@@ -124,7 +124,7 @@
 
 ‍
 
-### ⭐Redis 为什么这么快
+### <span class="star-badge">⭐</span> Redis 为什么这么快
 
 ![image](../assets/image-20251208110957-2yz3meb.png)
 
@@ -147,13 +147,13 @@
 3. Redis 支持原生集群模式。
 4. Memcached 多线程、非阻塞IO复用的网络模型；Redis 使用单线程多路IO复用模型。
 
-### ⭐为什么用 Redis
+### <span class="star-badge">⭐</span> 为什么用 Redis
 
 1. 访问速度快。
 2. 高并发。直接操作缓存能够承受的数据库请求数量是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去，这样用户的一部分请求会直接到缓存这里而不用经过数据库。进而，我们也就提高了系统整体的并发。
 3. 功能全面。Redis 除了可以用作缓存之外，还可以用于分布式锁、限流、消息队列、延时队列等场景，功能强大！
 
-### ⭐为什么用 Redis 而不是用本地缓存
+### <span class="star-badge">⭐</span> 为什么用 Redis 而不是用本地缓存
 
 1. 多服务器本地缓存会出现数据不一致的问题。
 2. 本地缓存有数据丢失风险，Redis 有持久化机制，不易丢失。
@@ -168,7 +168,7 @@
 - 消息队列
 - 延时队列
 
-### ⭐分布式锁
+### <span class="star-badge">⭐</span> 分布式锁
 
 不论是本地锁还是分布式锁，核心都在于“互斥”。
 
@@ -248,7 +248,7 @@ pub/sub 既能单播又能广播，还支持 channel 的简单正则匹配。不
 - ​`last_delivered_id`​：标识消费者组当前消费位置的游标，消费者组中任意一个消费者读取了消息都会使 last\_delivered\_id 往前移动。
 - ​`pending_ids`：记录已经被客户端消费但没有 ack 的消息的 ID。
 
-## ⭐Redis 持久化
+## <span class="star-badge">⭐</span> Redis 持久化
 
 ### RDB 持久化
 
@@ -293,7 +293,7 @@ Redis 4.0开始支持RDB和AOF的混合持久化。
 - RDB：全量快照，二进制数据，加载快，丢失数据多。
 - AOF：操作日志，文本数据，加载慢，丢失数据少。
 
-## ⭐Redis 线程模型
+## <span class="star-badge">⭐</span> Redis 线程模型
 
 **Redis 基于 Reactor 模式设计开发了一套高效的事件处理模型**（Netty 的线程模型也基于 Reactor 模式），这套事件处理模型对应的是 Redis 中的文件==事件处理器（file event handler）==。由于文件事件处理器（file event handler）是单线程方式运行的，所以我们一般都说 Redis 是单线程模型。
 
@@ -310,7 +310,7 @@ Redis 通过 **IO 多路复用程序** 来监听来自客户端的大量连接�
 - 文件事件分派器（将 socket 关联到相应的事件处理器）
 - 事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）
 
-## ⭐Redis 内存管理
+## <span class="star-badge">⭐</span> Redis 内存管理
 
 ![image](../assets/image-20251212160311-h28s8kh.png)
 
@@ -353,7 +353,7 @@ Redis 提供了 6 种内存淘汰策略：
 
 ​`allkeys-xxx`​ 表示从所有的键值中淘汰数据，而 `volatile-xxx` 表示从设置了过期时间的键值中淘汰数据。
 
-## ⭐Redis 生产问题
+## <span class="star-badge">⭐</span> Redis 生产问题
 
 ### 缓存穿透
 
@@ -489,7 +489,7 @@ Redis 提供了 6 种内存淘汰策略：
 
 ## Redis 集群
 
-### ⭐Redis Sentinel
+### <span class="star-badge">⭐</span> Redis Sentinel
 
 ![1663979593266-3d66a28e-c0db-4a96-8400-d7c6ffae0a9f-801279](../assets/1663979593266-3d66a28e-c0db-4a96-8400-d7c6ffae0a9f-801279-20251216110711-o4d1qxk.png)
 

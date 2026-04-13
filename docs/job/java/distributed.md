@@ -1,6 +1,6 @@
 # 分布式
 
-## ⭐CAP 理论
+## <span class="star-badge">⭐</span> CAP 理论
 
 - **一致性（Consistency）**  : 所有节点访问同一份最新的数据副本
 - ​**可用性（Availability）** : 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。
@@ -10,7 +10,7 @@
 
 如果系统发生“分区”，我们要考虑选择 CP 还是 AP。如果系统没有发生“分区”的话，我们要思考如何保证 CA 。
 
-## ⭐BASE 理论
+## <span class="star-badge">⭐</span> BASE 理论
 
 BASE 是 Basically Available（基本可用）、Soft-state（软状态） 和 Eventually Consistent（最终一致性） 三个短语的缩写。
 
@@ -18,7 +18,7 @@ BASE 是 Basically Available（基本可用）、Soft-state（软状态） 和 E
 
 也就是牺牲数据的一致性来满足系统的高可用性，系统中一部分数据不可用或者不一致时，仍需要保持系统整体“主要可用”。
 
-## ⭐一致性哈希算法
+## <span class="star-badge">⭐</span> 一致性哈希算法
 
 **普通哈希算法**
 
@@ -42,7 +42,7 @@ node_number = hash(key) % 2^32
 
 新增节点和移除节点的情况下，哈希环的引入可以避免影响范围太大，减少需要迁移的数据。
 
-## ⭐API 网关
+## <span class="star-badge">⭐</span> API 网关
 
 一般情况下，网关可以为我们提供请求转发、安全认证（身份/权限认证）、流量控制、负载均衡、降级熔断、日志、监控、参数校验、协议转换等功能。
 
@@ -96,7 +96,7 @@ node_number = hash(key) % 2^32
 - 基于分布式协调服务 ZooKeeper 实现分布式锁。
 - 基于分布式键值存储系统比如 Redis 、Etcd 实现分布式锁。
 
-### ⭐**基于 Redis 实现分布式锁**
+### <span class="star-badge">⭐</span> **基于 Redis 实现分布式锁**
 
 使用 `SETNX`​ 命令实现互斥。`SETNX`​ 即 `SET if Not eXists` (对应 Java 中的 setIfAbsent 方法)，如果 key 不存在的话，才会设置 key 的值。如果 key 已经存在， SETNX 啥也不做。
 
@@ -134,7 +134,7 @@ Redlock 算法的思想是让客户端向 Redis 集群中的多个独立的 Redi
 
 实际项目中不建议使用 Redlock 算法，成本和收益不成正比，可以考虑基于 Redis 主从复制+哨兵模式实现分布式锁。
 
-## ⭐分布式事务
+## <span class="star-badge">⭐</span> 分布式事务
 
 事务是逻辑上的一组操作，要么都执行，要么都不执行。
 
@@ -214,7 +214,7 @@ TCC 是 Try、Confirm、Cancel 三个词的缩写，它分为三个阶段：
 
 ## RPC
 
-### ⭐概念
+### <span class="star-badge">⭐</span> 概念
 
 RPC（Remote Procedure Call） 即远程过程调用，通过名字我们就能看出 RPC 关注的是远程调用而非本地调用。
 

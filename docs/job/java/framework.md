@@ -6,7 +6,7 @@ Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员�
 
 我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我们进行开发，比如说 Spring 支持 IoC（Inversion of Control:控制反转） 和 AOP(Aspect-Oriented Programming:面向切面编程)、可以很方便地对数据库进行访问、可以很方便地集成第三方组件（电子邮件，任务，调度，缓存等等）、对单元测试支持比较好、支持 RESTful Java 应用程序的开发。
 
-### ⭐Spring, Spring MVC, Spring Boot 关系
+### <span class="star-badge">⭐</span> Spring, Spring MVC, Spring Boot 关系
 
 Spring 包含了多个功能模块，其中最重要的是 Spring-Core（主要提供 IoC 依赖注入功能的支持） 模块， Spring 中的其他模块（比如 Spring MVC）的功能实现基本都需要依赖于该模块。
 
@@ -16,7 +16,7 @@ Spring MVC 是 Spring 中的一个很重要的模块，主要赋予 Spring 快�
 
 ### Spring IoC
 
-#### ⭐什么是IoC
+#### <span class="star-badge">⭐</span> 什么是IoC
 
 IoC （Inversion of Control ）即控制反转/反转控制。它是一种思想不是一个技术实现。描述的是：Java 开发领域对象的创建以及管理的问题。
 
@@ -27,7 +27,7 @@ IoC （Inversion of Control ）即控制反转/反转控制。它是一种思想
 - 控制 ：指的是对象创建（实例化、管理）的权力
 - 反转 ：控制权交给外部环境（IoC 容器）
 
-#### ⭐IoC 解决了什么问题？
+#### <span class="star-badge">⭐</span> IoC 解决了什么问题？
 
 IoC 的思想就是两方之间不互相依赖，由第三方容器来管理相关资源。好处：
 
@@ -60,21 +60,21 @@ IoC 的思想就是两方之间不互相依赖，由第三方容器来管理相�
 - `@Component`通常是通过类路径扫描来自动侦测以及自动装配到 Spring 容器中。`@Bean` 注解通常是我们在标有该注解的方法中定义产生这个 bean,`@Bean`告诉了 Spring 这是某个类的实例，当我需要用它的时候还给我。
 -`@Bean` 注解比 `@Component` 注解的自定义性更强，而且很多地方我们只能通过 `@Bean` 注解来注册 bean。比如当我们引用第三方库中的类需要装配到 Spring容器时，则只能通过 `@Bean`来实现。
 
-#### ⭐@Autowired 和 @Resource 的区别是什么？
+#### <span class="star-badge">⭐</span> @Autowired 和 @Resource 的区别是什么？
 
 - `@Autowired` 是 Spring 内置的注解，默认注入逻辑为先按类型（byType）匹配，若存在多个同类型 Bean，则再尝试按名称（byName）筛选。
 - `@Resource` 源自 JSR-250 规范（标准 Java 规范），在 JDK 6 到 JDK 10 中，它确实存在于 JDK 提供的包中。不过，从 JDK 11 开始，它不再默认存在于 JDK 内部，你需要引入额外的依赖 javax.annotation-api才能使用。
   
   Spring 对 `@Resource`（无参情况）的处理：先按名称（byName），没找到就按类型（byType）
 
-#### ⭐Bean 的作用域有哪些？
+#### <span class="star-badge">⭐</span> Bean 的作用域有哪些？
 
 - singleton：单例模式。Spring 中的 bean 默认是单例的。
 - prototype：每次获取都会创建一个新的 bean 实例。
 
 还有几个仅 web 应用可用的模式。
 
-#### ⭐Bean 是线程安全的吗？
+#### <span class="star-badge">⭐</span> Bean 是线程安全的吗？
 
 Spring 框架中的 Bean 是否线程安全，取决于其作用域和状态。
 
@@ -84,7 +84,7 @@ prototype 作用域下，每次获取都会创建一个新的 bean 实例，不�
 
 不过，大部分 Bean 实际都是无状态（没有定义可变的成员变量）的（比如 Dao、Service），这种情况下， Bean 是线程安全的。
 
-#### ⭐Bean 的生命周期
+#### <span class="star-badge">⭐</span> Bean 的生命周期
 
 - 创建 Bean 的实例：Bean 容器首先会找到配置文件中的 Bean 定义，然后使用 Java 反射 API 来创建 Bean 的实例。
 - Bean 属性赋值/填充：为 Bean 设置相关属性和依赖，例如`@Autowired` 等注解注入的对象、`@Value` 注入的值、setter方法或构造函数注入依赖和值、`@Resource`注入的各种资源。
@@ -93,13 +93,13 @@ prototype 作用域下，每次获取都会创建一个新的 bean 实例，不�
 
 ### Spring AOP
 
-#### ⭐对 AOP 的理解
+#### <span class="star-badge">⭐</span> 对 AOP 的理解
 
 AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
 
 Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 JDK Proxy，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 Cglib 生成一个被代理对象的子类来作为代理
 
-#### ⭐AOP 常见的通知类型
+#### <span class="star-badge">⭐</span> AOP 常见的通知类型
 
 - **Before**（前置通知）：目标对象的方法调用之前触发。
 - **After** （后置通知）：目标对象的方法调用之后触发。
@@ -111,7 +111,7 @@ Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某
 
 MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。
 
-#### ⭐SpringMVC 工作原理了解吗?
+#### <span class="star-badge">⭐</span> SpringMVC 工作原理了解吗?
 
 ![流程图](../assets/de6d2b213f112297298f3e223bf08f28.png)
 
@@ -183,7 +183,7 @@ Spring 的三级缓存包括：
 
 ### Spring 事务
 
-#### ⭐事务失效场景
+#### <span class="star-badge">⭐</span> 事务失效场景
 
 **场景一：异常捕获处理**
 
@@ -338,7 +338,7 @@ public class ScheduledTasks {
 
 ## MyBatis
 
-### ⭐`#{}` 和 `${}` 的区别
+### <span class="star-badge">⭐</span> `#{}` 和 `${}` 的区别
 
 - `${}` 是变量占位符，它可以用于标签属性值和 sql 内部，属于原样文本替换，可以替换任意内容
 - `#{}` 是 sql 的参数占位符，MyBatis 会将 sql 中的#{}替换为? 号，在 sql 执行前会按序给 sql 的? 号占位符设置参数值。
