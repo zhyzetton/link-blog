@@ -20,9 +20,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      { text: '八股相关', link: '/job/java/basic' },
+      { text: '八股', link: '/job/java/basic' },
       { text: '语言', link: '/language/rust' },
       { text: '框架', link: '/framework/react' },
+      { text: '算法', link: '/algorithm/basic' },
     ],
 
     sidebar: {
@@ -75,6 +76,13 @@ export default defineConfig({
           items: [
             { text: 'React 基础', link: '/framework/react'},
             { text: 'Svelte5 基础', link: '/framework/svelte5'},
+          ]
+        }
+      ],
+      '/algorithm/': [
+        {
+          items: [
+            { text: '算法基础', link: '/algorithm/basic' },
           ]
         }
       ]
