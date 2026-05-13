@@ -19,11 +19,9 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '主页', link: '/' },
       { text: '八股', link: '/job/java/basic' },
       { text: '语言', link: '/language/rust' },
       { text: '框架', link: '/framework/react' },
-      { text: '算法', link: '/algorithm/basic' },
     ],
 
     sidebar: {
